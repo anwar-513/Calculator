@@ -1,5 +1,8 @@
 let result = "0";
 let resultArea = document.querySelector(".output-area");
+let runningTotal = 0;
+let previousOperator;
+
 
 
 function buttonClick(value) {
@@ -23,13 +26,51 @@ function handleNumber(number) {
 
 }
 
+function handleMath(number) {
+    if (result === '0') {
+        return;
+    }
+
+    const intResult = parseInt(result);
+    if (runningTotal === 0) {
+        runningTotal = intResult;
+    }
+    else {
+        flushOperation(intResult);
+    }
+
+    previousOperator = number;
+    result = "0";
+}
+
+function flushOperation(intResult) {
+    if (previousOperator === "+") {
+        runningTotal += intResult;
+    }
+    else if (previousOperator === "-") {
+        runningTotal -= intResult;
+    }
+    else if (previousOperator === "÷") {
+        runningTotal /= intResult;
+    }
+    else if (previousOperator === "×") {
+        runningTotal *= intResult;
+    }
+}
+
 function handleSymble(symble) {
     switch (symble) {
         case 'C':
             result = 0;
             break;
-            
+
         case '=':
+            if (previousOperator === null) {
+                return;
+            }
+            flushOperation(parseInt(result))
+            result = "" + runningTotal;
+            runningTotal = 0;
             break;
         case '«':
             if (result.length === 1) {
