@@ -9,13 +9,77 @@ body {
 
 .calculator {
     width: 450px;
-    background-color: aquamarine;
+    background-color: rgb(28, 0, 120);
 }
 
 .output-area {
-    background-color: black;
+    background-color: rgb(25, 1, 103);
+    font-size: 55px;
     color: beige;
     font-family: Arial, Helvetica, sans-serif;
     text-align: right;
-    padding: 5px 15px;
+    padding: 30px 20px;
+}
+
+.button {
+    background-color: #d8d9db;
+    text-align: center;
+    padding: 25px;
+    color: black;
+    height: 100px;
+    width: 24.5%;
+    border: none;
+    border-radius: 0;
+    font-size: 50px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    margin-bottom: 0.5%;
+}
+
+.button:hover {
+    background-color: aliceblue;
+}
+
+.button:active {
+    background-color: rgb(186, 216, 243);
+}
+
+.large {
+    width: 49.7%;
+}
+
+.x-large {
+    width: 74.8%;
+}
+
+.button:last-child {
+    background-color: rgb(149, 196, 237);
+    color: rgb(34, 34, 34);
+}
+
+
+.button:last-child:hover {
+    background-color: rgb(99, 172, 235);
+}
+
+
+.button:last-child:active {
+    background-color: rgb(9, 119, 215);
+}
+
+.row {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    margin-bottom: 0.5%;
+}
+
+.row:last-child {
+    padding-bottom: 0;
 }
